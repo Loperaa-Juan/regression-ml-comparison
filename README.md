@@ -1,6 +1,6 @@
 # 🎓 Student Performance Prediction — ML Regression Comparison
 
-A machine learning project that **compares multiple regression approaches** (Neural Networks, Voting Regressor, Bagging Regressor) for predicting student academic performance. Includes Jupyter notebooks for exploratory analysis and model training, plus a **FastAPI REST API** to serve predictions in real time.
+A machine learning project that **compares multiple regression approaches** (Neural Networks, Voting Regressor, Bagging Regressor) for predicting student academic performance. Includes Jupyter notebooks for exploratory analysis and model training, plus a **FastAPI REST API** and a **React frontend** to serve predictions in real time.
 
 ---
 
@@ -89,6 +89,27 @@ primer_taller_IA2/
 │           ├── nn_model.onnx                         # Trained neural network
 │           ├── voting_regressor_trained-0.1.0.pkl     # Trained voting ensemble
 │           └── bagging_regressor_trained-0.1.0.pkl    # Trained bagging ensemble
+├── frontend/
+│   ├── src/
+│   │   ├── assets/
+│   │   │   └── vite.svg
+│   │   ├── components/
+│   │   │   ├── Header.jsx
+│   │   │   ├── Header.css
+│   │   │   ├── Hero.jsx
+│   │   │   ├── Hero.css
+│   │   │   ├── ResultCard.jsx
+│   │   │   ├── ResultCard.css
+│   │   │   ├── PredictionForm.jsx
+│   │   │   └── PredictionForm.css
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── public/
+│   │   └── vite.svg
+│   ├── package.json
+│   └── vite.config.js
 ```
 
 ---
