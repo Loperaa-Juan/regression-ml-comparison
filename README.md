@@ -81,8 +81,9 @@ primer_taller_IA2/
 ├── api/
 │   ├── main.py                      # FastAPI app & endpoint definitions
 │   ├── models.py                    # Pydantic request schemas
-│   ├── requirements.txt             # Python dependencies
-│   ├── Dockerfile                   # Dockerfile for FastAPI app
+│   ├── pyproject.toml               # Project metadata & dependencies (uv)
+│   ├── uv.lock                      # Locked dependency versions
+│   ├── Dockerfile                   # Dockerfile for FastAPI app (uv image)
 │   └── services/
 │       ├── neural_network.py        # ONNX inference service
 │       ├── assembly_algorithms.py   # Ensemble model inference service
@@ -162,8 +163,8 @@ primer_taller_IA2/
 
 ### Prerequisites
 
-- **Python 3.10+**
-- **pip**
+- **Python 3.11+**
+- **[uv](https://docs.astral.sh/uv/)** (Astral)
 
 ### Step 1 — Clone the repository
 
@@ -172,33 +173,24 @@ git clone https://github.com/Loperaa-Juan/regression-ml-comparisson.git
 cd regression-ml-comparisson
 ```
 
-### Step 2 — Create a virtual environment
+### Step 2 — Install dependencies
 
 ```bash
-# Windows
-python -m venv api/.venv
-api\.venv\Scripts\activate
-
-# macOS / Linux
-python3 -m venv api/.venv
-source api/.venv/bin/activate
+cd api
+uv sync
 ```
 
-### Step 3 — Install dependencies
+> `uv` creates a virtual environment at `api/.venv` and installs dependencies from `uv.lock`.
+
+### Step 3 — Run the API server
 
 ```bash
-pip install -r api/requirements.txt
-```
-
-### Step 4 — Run the API server
-
-```bash
-fastapi dev api/main.py
+uv run fastapi dev main.py
 ```
 
 > The server starts at **http://127.0.0.1:8000**. Interactive API docs are available at **http://127.0.0.1:8000/docs**.
 
-### Step 5 — Run the frontend server
+### Step 4 — Run the frontend server
 
 ```bash
 cd frontend
